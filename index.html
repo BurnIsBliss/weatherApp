@@ -9,13 +9,19 @@
 </head>
 <body>
     <form action="post" class="searchLocation">
-        <label for="location">Search location</label>
-        <input type="text" name="location" id="location" placeholder="London" required>
-        <button id='search' type="submit">Search</button>
+        <div class="searchContainer">
+            <label for="location">Search location</label>
+            <input type="text" name="location" id="location" placeholder="London" required>
+        </div>
+        <div class="temperatureContainer">
+            <input type="radio" name="measurementUnit" id="measurementUS" value="us">
+            <label for="measurementUS">Unit(Degrees Fahrenheit)</label>
+            <input type="radio" name="measurementUnit" id="measurementUK" value="uk" checked>
+            <label for="measurementUK">Unit(Degrees Celcius)</label>
+        </div>
+        <div class="buttonContainer">
+            <button id='search' type="submit">Search</button>
+        </div>
     </form>
-    <input type="radio" name="measurementUnit" id="measurementUS" value="us">
-    <label for="measurement">Unit(Degrees Fahrenheit)</label>
-    <input type="radio" name="measurementUnit" id="measurementUK" value="uk" checked>
-    <label for="measurement">Unit(Degrees Celcius)</label>
 </body>
 </html>
