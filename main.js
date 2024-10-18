@@ -26,6 +26,7 @@ function processWeatherData (jsonData, tempUnit) {
     const temp = jsonData.currentConditions.temp;
     const temperatureUnit = (tempUnit == 'us')? '°F' : '°C';
     console.log(`${location}: ${temp}${temperatureUnit}`);
+    displayWeather(jsonData.resolvedAddress, jsonData.currentConditions.conditions, jsonData.currentConditions.temp);
     fetchGIF(jsonData.currentConditions.conditions);
 }
 
@@ -42,4 +43,27 @@ async function fetchGIF (backgroundImage) {
     catch (err) {
         console.log(err.message);
     }
+}
+
+function displayWeather (...args) {
+    const dialogElement = document.querySelector('.displayResult');
+    while (dialogElement.firstElementChild) {
+        dialogElement.removeChild(dialogElement.lastElementChild);
+    }
+    for (let i in args) {
+        const divElement = createDiv();
+        divElement.textContent = args[i];
+        dialogElement.append(divElement);
+    }
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.addEventListener ('click', () => {
+        dialogElement.close();
+    })
+    dialogElement.appendChild(closeButton);
+    dialogElement.showModal();
+}
+
+function createDiv () {
+    return document.createElement('div');
 }

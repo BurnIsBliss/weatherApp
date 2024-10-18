@@ -19,3 +19,12 @@ form {
     border: 2px solid black;
     border-radius: 4px;
 }
+
+.displayResult {
+    padding: 30px;
+    align-items: center;
+}
+
+.displayResult > button {
+    text-align: center;
+}
